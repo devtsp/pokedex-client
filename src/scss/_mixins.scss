@@ -1,0 +1,10 @@
+@mixin minWidth($width) {
+	@media only screen and (min-width: $width) {
+		@content;
+	}
+}
+
+@mixin center {
+	display: flex;
+	align-items: center;
+}

@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap");
+body {
+  background-color: rgb(245, 242, 196);
+  font-family: "Roboto", sans-serif;
+}
+
+#app-header {
+  background-color: rgb(78, 78, 114);
+}
+
+#Index {
+  border-right: 2px solid rgba(1, 1, 1, 0.103);
+}
+#Index button {
+  background-color: rgb(78, 78, 114);
+  border-color: rgb(78, 78, 114);
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+#Details {
+  display: flex;
+  align-items: center;
+}
+
+.change-orientation {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.change-orientation div:nth-child(1) {
+  padding: 2rem;
+}
+@media only screen and (min-width: 675px) {
+  .change-orientation {
+    flex-direction: row;
+  }
+  .change-orientation div:nth-child(1) {
+    border-right: 2px solid rgba(1, 1, 1, 0.103);
+  }
+}
+.change-orientation:nth-child(1) {
+  display: flex;
+  align-items: center;
+}
+
+/*# sourceMappingURL=index.css.map */

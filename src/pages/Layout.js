@@ -9,7 +9,7 @@ const Layout = () => {
 			<h1 id="app-header" className="text-center text-light fw-bolder p-2">
 				Pokedex
 			</h1>
-			<div className="d-flex justify-content-between">
+			<div className="d-flex justify-content-center">
 				<Index></Index>
 				<Details></Details>
 			</div>
