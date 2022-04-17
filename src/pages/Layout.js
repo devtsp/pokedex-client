@@ -1,12 +1,18 @@
 import React from 'react';
 
-import Page from '../components/Page';
+import Index from '../components/Index';
+import Details from '../components/Details';
 
 const Layout = () => {
 	return (
 		<div>
-			<h2>Layout</h2>
-			<Page></Page>
+			<h1 id="app-header" className="text-center text-light fw-bolder p-2">
+				Pokedex
+			</h1>
+			<div className="d-flex justify-content-between">
+				<Index></Index>
+				<Details></Details>
+			</div>
 		</div>
 	);
 };

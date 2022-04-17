@@ -5,6 +5,7 @@ import actionTypes from './types.js';
 const initialPokedexState = {
 	loading: true,
 	errors: {},
+	pageFactor: 13,
 };
 
 function pokedexReducer(state, { action, payload }) {
@@ -24,6 +25,11 @@ function pokedexReducer(state, { action, payload }) {
 				...state,
 				actualPage: payload,
 			};
+		case actionTypes.SET_POKEMON:
+			return {
+				...state,
+				currentPokemon: payload,
+			};
 		default:
 			return state;
 	}
@@ -35,7 +41,7 @@ export default function usePokedexReducer() {
 		initialPokedexState
 	);
 
-	console.log(state.actualPage);
+	console.log(state);
 
 	return {
 		state,

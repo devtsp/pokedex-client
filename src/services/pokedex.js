@@ -13,8 +13,12 @@ import {
 import { mapPokemon } from '../mappers/pokemon-mapper.js';
 import { mapPage } from '../mappers/page-mapper.js';
 
+// Do not display pokemons beyond number 897
+// pages = 897 / pokemons per page
+// 897 / 13 = 69
+
 const circularPagination = pageNumber => {
-	return pageNumber === -1 ? 25 : pageNumber === 26 ? 1 : pageNumber;
+	return pageNumber === -1 ? 68 : pageNumber === 69 ? 0 : pageNumber;
 };
 
 export const getPage = async (pageNumber, numberOfPokemons) => {

@@ -13,7 +13,6 @@ function App() {
 	return (
 		<div className="App">
 			<PokedexContext.Provider value={usePokedexReducer()}>
-				<h1>App</h1>
 				<Layout></Layout>
 			</PokedexContext.Provider>
 		</div>

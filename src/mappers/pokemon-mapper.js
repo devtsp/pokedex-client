@@ -56,11 +56,11 @@ export const mapPokemon = (pokemon, pokemon_species, evolution_chain) => {
 		getSpecieDetails(pokemon_species);
 	const { evolvesFrom, evolvesTo } = getEvolutionDetails(name, evolution_chain);
 	const pokemonInfo = {
+		imgUrl,
 		name,
 		number,
 		type,
 		abilities,
-		imgUrl,
 		flavorText,
 		habitat,
 		shape,
