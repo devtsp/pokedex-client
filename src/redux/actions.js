@@ -6,6 +6,7 @@ export const getAndSetPage = pageNumber => async (dispatch, getState) => {
 	try {
 		const page = await getPage(pageNumber, getState().pageFactor);
 		dispatch(setPage(page));
+		dispatch(getAndSetPokemon(page.pokemonNames[0]));
 	} catch (err) {
 		dispatch(setError(err));
 	} finally {

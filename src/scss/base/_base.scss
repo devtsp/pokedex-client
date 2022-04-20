@@ -1,0 +1,107 @@
+@use '../abstracts/colors';
+@use '../abstracts/mixins';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+ol,
+ul {
+	list-style: none;
+	padding: 0;
+}
+
+body {
+	background-color: colors.$yellow;
+	font-family: 'Montserrat', sans-serif;
+}
+
+#app-header {
+	background-color: colors.$blue;
+	color: white;
+	text-align: center;
+	padding: 0.5rem 0;
+}
+
+#Index {
+	border-right: 2px solid colors.$transparency-9;
+
+	button {
+		background-color: colors.$blue;
+		border-color: colors.$blue;
+	}
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+#Details {
+	@include mixins.center;
+	.content {
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		margin: 0 1rem 0 0;
+		@include mixins.minWidth(675px) {
+			flex-direction: row;
+			div:nth-child(1) {
+				border-right: 2px solid colors.$transparency-9;
+				border-bottom: none;
+			}
+		}
+
+		> :nth-child(1) {
+			padding: 0.5rem;
+			border-bottom: 2px solid colors.$transparency-9;
+		}
+
+		> :nth-child(2) {
+			align-self: center;
+			text-align: center;
+			padding: 0.5rem;
+		}
+	}
+
+	.type {
+		font-size: 1rem;
+	}
+
+	.image {
+		width: 100%;
+	}
+
+	.flavor {
+		text-align: center;
+		color: colors.$transparency-7;
+		line-height: 1.2rem;
+		padding: 0.5rem 0;
+	}
+
+	.abilities {
+		margin: 0.5rem;
+		> :nth-child(1) {
+			display: block;
+		}
+	}
+
+	.evolutions {
+		strong {
+			color: colors.$blue-link;
+			text-decoration: underline;
+			cursor: pointer;
+			&:hover {
+				color: colors.$blue-link-hover;
+			}
+		}
+	}
+}
+
+.active-pokemon {
+	font-weight: 600;
+	color: red;
+	background-color: green;
+}

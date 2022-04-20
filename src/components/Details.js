@@ -9,44 +9,43 @@ const Details = () => {
 		<>
 			{currentPokemon && (
 				<div id="Details">
-					<ul className="list-unstyled">
-						<div className="change-orientation">
+					<ul>
+						<div className="content">
 							<div>
-								<h4 className="text-center fw-bold">
-									{currentPokemon.Name} ({currentPokemon.Type})
+								<h4>
+									{`${currentPokemon.Name} `}
+									<span className="type">({currentPokemon.Type})</span>
 								</h4>
-								<li className="text-center main-pic-container">
+								<li>
 									<img
-										className="img-fluid"
+										className="image"
 										src={currentPokemon['Image URL']}
 										alt={currentPokemon.Name}
 									/>
 								</li>
-								<li className="text-center text-black-50 p-2 mb-3">
+								<li className="flavor">
 									<i>"{currentPokemon['Flavor Text']}"</i>
 								</li>
 							</div>
-							<div className="p-4">
-								<li>
-									<strong>Abilities: </strong>{' '}
+							<div>
+								<li className="abilities">
+									<strong>Abilities: </strong>
 									<span> {currentPokemon.Abilities.split().join(', ')}</span>
 								</li>
-								{currentPokemon['Evolves From'] && (
-									<li>
-										<span>Evolves from </span>{' '}
-										<strong className="text-decoration-underline text-primary pointer">
-											{currentPokemon['Evolves From']}
-										</strong>
-									</li>
-								)}
-								{currentPokemon['Evolves To'] && (
-									<li>
-										<span>Evolves to</span>{' '}
-										<strong className="text-decoration-underline text-primary pointer">
-											{currentPokemon['Evolves To']}
-										</strong>
-									</li>
-								)}
+								<div className="evolutions">
+									{currentPokemon['Evolves From'] && (
+										<li>
+											<span>🔗 Evolves from </span>
+											<strong>{currentPokemon['Evolves From']}</strong>
+										</li>
+									)}
+									{currentPokemon['Evolves To'] && (
+										<li>
+											<span>🔗 Evolves to </span>
+											<strong>{currentPokemon['Evolves To']}</strong>
+										</li>
+									)}
+								</div>
 							</div>
 						</div>
 					</ul>

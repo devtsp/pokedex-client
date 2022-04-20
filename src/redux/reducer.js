@@ -4,6 +4,8 @@ const initialPokedexState = {
 	loading: true,
 	errors: {},
 	pageFactor: 13,
+	currentPage: null,
+	currentPokemon: null,
 };
 
 export function pokedexReducer(state = initialPokedexState, { type, payload }) {
@@ -21,7 +23,7 @@ export function pokedexReducer(state = initialPokedexState, { type, payload }) {
 		case actionTypes.SET_PAGE:
 			return {
 				...state,
-				actualPage: payload,
+				currentPage: payload,
 			};
 		case actionTypes.SET_POKEMON:
 			return {

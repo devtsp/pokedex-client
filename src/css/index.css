@@ -1,15 +1,30 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+ol,
+ul {
+  list-style: none;
+  padding: 0;
+}
+
 body {
   background-color: rgb(245, 242, 196);
-  font-family: "Roboto", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 #app-header {
   background-color: rgb(78, 78, 114);
+  color: white;
+  text-align: center;
+  padding: 0.5rem 0;
 }
 
 #Index {
-  border-right: 2px solid rgba(1, 1, 1, 0.103);
+  border-right: 2px solid rgba(1, 1, 1, 0.1);
 }
 #Index button {
   background-color: rgb(78, 78, 114);
@@ -24,26 +39,61 @@ body {
   display: flex;
   align-items: center;
 }
-
-.change-orientation {
+#Details .content {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-}
-.change-orientation div:nth-child(1) {
-  padding: 2rem;
+  margin: 0 1rem 0 0;
 }
 @media only screen and (min-width: 675px) {
-  .change-orientation {
+  #Details .content {
     flex-direction: row;
   }
-  .change-orientation div:nth-child(1) {
-    border-right: 2px solid rgba(1, 1, 1, 0.103);
+  #Details .content div:nth-child(1) {
+    border-right: 2px solid rgba(1, 1, 1, 0.1);
+    border-bottom: none;
   }
 }
-.change-orientation:nth-child(1) {
-  display: flex;
-  align-items: center;
+#Details .content > :nth-child(1) {
+  padding: 0.5rem;
+  border-bottom: 2px solid rgba(1, 1, 1, 0.1);
+}
+#Details .content > :nth-child(2) {
+  align-self: center;
+  text-align: center;
+  padding: 0.5rem;
+}
+#Details .type {
+  font-size: 1rem;
+}
+#Details .image {
+  width: 100%;
+}
+#Details .flavor {
+  text-align: center;
+  color: rgba(1, 1, 1, 0.3);
+  line-height: 1.2rem;
+  padding: 0.5rem 0;
+}
+#Details .abilities {
+  margin: 0.5rem;
+}
+#Details .abilities > :nth-child(1) {
+  display: block;
+}
+#Details .evolutions strong {
+  color: rgb(51, 51, 172);
+  text-decoration: underline;
+  cursor: pointer;
+}
+#Details .evolutions strong:hover {
+  color: rgb(155, 57, 0);
+}
+
+.active-pokemon {
+  font-weight: 600;
+  color: red;
+  background-color: green;
 }
 
 /*# sourceMappingURL=index.css.map */
