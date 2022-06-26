@@ -1,0 +1,218 @@
+@use '../abstracts/colors';
+@use '../abstracts/mixins';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	box-sizing: border-box;
+}
+
+ol,
+ul {
+	list-style: none;
+	padding: 0;
+}
+
+body {
+	background-color: colors.$pink;
+	font-family: 'Montserrat', sans-serif;
+}
+
+button {
+	border: none;
+	cursor: pointer;
+}
+
+/*==================================================  HEADER */
+
+#app-header {
+	background-color: colors.$blue;
+	color: white;
+	text-align: center;
+	padding: 0.5rem 0;
+}
+
+/* ================================================== MAIN LAYOUT */
+
+.Layout {
+	@include mixins.flex(row, flex-start, center);
+	margin-top: 2rem;
+}
+
+/* ================================================ PAGINATION ASIDE */
+
+#Index {
+	@include mixins.flex(column, center, center);
+
+	height: 100%;
+	padding: 0.6rem;
+
+	button {
+		background-color: colors.$blue;
+		border-color: colors.$blue;
+		display: block;
+		margin-bottom: 0.4rem;
+		width: 100%;
+		padding: 0.4rem;
+		color: white;
+		border-radius: 5px;
+	}
+
+	ul {
+		border: 1px solid colors.$black-20;
+		padding: 0.4rem;
+		padding-top: 0;
+		border-radius: 5px;
+	}
+
+	li {
+		cursor: pointer;
+		padding: 0.2rem 0.4rem;
+
+		.pagination-info {
+			font-weight: 600;
+			margin: 0.4rem 0;
+		}
+	}
+
+	.active-pokemon {
+		font-weight: 600;
+		color: white;
+		background-color: colors.$blue;
+	}
+}
+
+/* ========================================== DETAILS ARTICLE */
+
+#Details {
+	@include mixins.flex(column, center, center);
+
+	padding: 0.6rem;
+	width: 300px;
+
+	.loading-details {
+		@include mixins.flex(column, center, center);
+		width: 100%;
+		aspect-ratio: 1 / 1.5;
+
+		img {
+			width: 70%;
+			margin: 0 auto;
+			opacity: 0.5;
+			animation-name: spin;
+			animation-duration: 0.7s;
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+		}
+
+		span {
+			display: block;
+			font-size: 1.4rem;
+			opacity: 0.5;
+		}
+	}
+
+	.pokemon-figure {
+		border: 2px solid colors.$black-50;
+		border-radius: 10px;
+		overflow: hidden;
+		background-color: colors.$white-40;
+
+		h1 {
+			padding: 0.4rem;
+			background-color: colors.$black-50;
+			color: white;
+
+			.type {
+				font-weight: 200;
+			}
+		}
+
+		.image {
+			width: 100%;
+			max-width: 400px;
+		}
+
+		.flavor {
+			text-align: center;
+			line-height: 1.2rem;
+			padding: 0.5rem;
+			background-color: colors.$black-50;
+			color: white;
+			font-style: italic;
+			font-weight: 200;
+		}
+	}
+
+	.info {
+		border: 2px solid colors.$black-20;
+		width: 100%;
+		margin-top: 1rem;
+		border-radius: 5px;
+		line-height: 1;
+		background-color: colors.$white-20;
+
+		li {
+			text-align: left;
+			padding: 0.4rem 0.8rem;
+			// line-break: anywhere;
+
+			&:not(:last-child) {
+				border-bottom: 2px solid colors.$black-30;
+			}
+		}
+
+		h1 {
+			font-size: 1rem;
+			text-align: left;
+		}
+
+		.link {
+			color: colors.$blue-link;
+			text-decoration: underline;
+			cursor: pointer;
+
+			&:hover {
+				color: colors.$blue-link-hover;
+			}
+		}
+	}
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+/* BREAKPOINTS */
+@media all and (max-width: 600px) {
+	:root {
+		font-size: 12px;
+	}
+}
+
+@media all and (max-width: 400px) {
+	#Details {
+		width: 200px !important;
+	}
+}
+
+@media all and (max-width: 300px) {
+	#Index {
+		width: 200px;
+
+		ul {
+			width: 100%;
+		}
+	}
+
+	.Layout {
+		@include mixins.flex(column, center, flex-start);
+	}
+}

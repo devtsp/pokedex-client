@@ -1,15 +1,15 @@
-import React from 'react';
-
 import actionTypes from './types.js';
 
 const initialPokedexState = {
-	loading: true,
+	loading: false,
 	errors: {},
 	pageFactor: 13,
+	currentPage: null,
+	currentPokemon: null,
 };
 
-function pokedexReducer(state, { action, payload }) {
-	switch (action) {
+export function pokedexReducer(state = initialPokedexState, { type, payload }) {
+	switch (type) {
 		case actionTypes.TOGGLE_LOADING:
 			return {
 				...state,
@@ -23,7 +23,7 @@ function pokedexReducer(state, { action, payload }) {
 		case actionTypes.SET_PAGE:
 			return {
 				...state,
-				actualPage: payload,
+				currentPage: payload,
 			};
 		case actionTypes.SET_POKEMON:
 			return {
@@ -33,18 +33,4 @@ function pokedexReducer(state, { action, payload }) {
 		default:
 			return state;
 	}
-}
-
-export default function usePokedexReducer() {
-	const [state, dispatch] = React.useReducer(
-		pokedexReducer,
-		initialPokedexState
-	);
-
-	console.log(state);
-
-	return {
-		state,
-		dispatch,
-	};
 }

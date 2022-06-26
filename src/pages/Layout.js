@@ -6,13 +6,13 @@ import Details from '../components/Details';
 const Layout = () => {
 	return (
 		<div>
-			<h1 id="app-header" className="text-center text-light fw-bolder p-2">
-				Pokedex
-			</h1>
-			<div className="d-flex justify-content-between">
+			<header>
+				<h1 id="app-header">Pokedex</h1>
+			</header>
+			<main className="Layout">
 				<Index></Index>
 				<Details></Details>
-			</div>
+			</main>
 		</div>
 	);
 };

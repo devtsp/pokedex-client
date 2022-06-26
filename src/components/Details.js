@@ -1,54 +1,69 @@
 import React from 'react';
-
-import { PokedexContext } from '../state/context';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAndSetPokemon } from '../redux/actions';
 
 const Details = () => {
-	const {
-		state: { currentPokemon },
-	} = React.useContext(PokedexContext);
+	const dispatch = useDispatch();
+	const { currentPokemon, loading } = useSelector(state => state);
+
+	React.useEffect(() => {}, []);
 
 	return (
-		<div className="p-3">
-			{currentPokemon && (
+		<article id="Details">
+			{loading && (
+				<div className="loading-details">
+					<img src="img/Pokeball-vector.png" alt="loading" />
+					<span> Loading..</span>
+				</div>
+			)}
+			{!loading && currentPokemon && (
 				<>
-					<h4 className="text-center fw-bold">
-						{currentPokemon.Name} ({currentPokemon.Type})
-					</h4>
-					<ul className="list-unstyled">
-						<li className="text-center ">
-							<img
-								style={{ width: '200px' }}
-								src={currentPokemon['Image URL']}
-								alt={currentPokemon.Name}
-							/>
-						</li>
-						<li className="text-center text-black-50 p-2 mb-3">
-							<i>"{currentPokemon['Flavor Text']}"</i>
-						</li>
-						<li>
-							<strong>Abilities: </strong>{' '}
+					<figure className="pokemon-figure">
+						<h1>
+							{`${currentPokemon.Name} `}{' '}
+							<span className="type">({currentPokemon.Type})</span>
+						</h1>
+
+						<img
+							className="image"
+							src={currentPokemon['Image URL']}
+							alt={currentPokemon.Name}
+						/>
+						<figcaption className="flavor">
+							<p>"{currentPokemon['Flavor Text']}"</p>
+						</figcaption>
+					</figure>
+					<ul className="info">
+						<li className="abilities">
+							<h1> Abilities:</h1>
 							<span> {currentPokemon.Abilities.split().join(', ')}</span>
 						</li>
 						{currentPokemon['Evolves From'] && (
 							<li>
-								<span>Evolves from </span>{' '}
-								<strong className="text-decoration-underline text-primary">
+								<h1>Evolves from:</h1>
+								<span
+									className="link"
+									onClick={e => dispatch(getAndSetPokemon(e.target.innerText))}
+								>
 									{currentPokemon['Evolves From']}
-								</strong>
+								</span>
 							</li>
 						)}
 						{currentPokemon['Evolves To'] && (
 							<li>
-								<span>Evolves to</span>{' '}
-								<strong className="text-decoration-underline text-primary">
+								<h1>Evolves to:</h1>
+								<span
+									className="link"
+									onClick={e => dispatch(getAndSetPokemon(e.target.innerText))}
+								>
 									{currentPokemon['Evolves To']}
-								</strong>
+								</span>
 							</li>
 						)}
 					</ul>
 				</>
 			)}
-		</div>
+		</article>
 	);
 };
 

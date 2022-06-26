@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 
 import Layout from './pages/Layout.js';
+import { Provider } from 'react-redux';
 
-import { PokedexContext } from './state/context.js';
-import usePokedexReducer from './state/usePokedexReducer.js';
 import { handleCacheVersion } from './storage/pokedex-storage.js';
+import { store } from './redux/store.js';
 
 function App() {
 	useEffect(() => {
@@ -12,9 +12,9 @@ function App() {
 	}, []);
 	return (
 		<div className="App">
-			<PokedexContext.Provider value={usePokedexReducer()}>
+			<Provider store={store}>
 				<Layout></Layout>
-			</PokedexContext.Provider>
+			</Provider>
 		</div>
 	);
 }
