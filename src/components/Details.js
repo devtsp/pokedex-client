@@ -12,7 +12,7 @@ const Details = () => {
 		<article id="Details">
 			{loading && (
 				<div className="loading-details">
-					<img src="img/Pokeball-vector.png" alt="loading" />
+					<img src="img/pokeball-vector.png" alt="loading" />
 					<span> Loading..</span>
 				</div>
 			)}
