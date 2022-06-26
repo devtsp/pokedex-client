@@ -1,7 +1,7 @@
 import actionTypes from './types.js';
 
 const initialPokedexState = {
-	loading: true,
+	loading: false,
 	errors: {},
 	pageFactor: 13,
 	currentPage: null,

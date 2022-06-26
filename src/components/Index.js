@@ -6,12 +6,13 @@ import { getAndSetPage, getAndSetPokemon } from '../redux/actions.js';
 const Index = () => {
 	const state = useSelector(state => state);
 	const dispatch = useDispatch();
+
 	const activePokemon = pokemon =>
 		pokemon === state.currentPokemon?.Name ? 'active-pokemon' : '';
 
 	React.useEffect(() => {
 		dispatch(getAndSetPage(0));
-	}, [dispatch]);
+	}, []);
 
 	const handlePage = pageNumber => {
 		dispatch(getAndSetPage(pageNumber));

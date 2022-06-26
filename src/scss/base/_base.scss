@@ -90,9 +90,31 @@ button {
 	@include mixins.flex(column, center, center);
 
 	padding: 0.6rem;
+	width: 300px;
+
+	.loading-details {
+		@include mixins.flex(column, center, center);
+		width: 100%;
+		aspect-ratio: 1 / 1.5;
+
+		img {
+			width: 70%;
+			margin: 0 auto;
+			opacity: 0.5;
+			animation-name: spin;
+			animation-duration: 0.7s;
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+		}
+
+		span {
+			display: block;
+			font-size: 1.4rem;
+			opacity: 0.5;
+		}
+	}
 
 	.pokemon-figure {
-		width: 300px;
 		border: 2px solid colors.$black-50;
 		border-radius: 10px;
 		overflow: hidden;
@@ -135,6 +157,7 @@ button {
 		li {
 			text-align: left;
 			padding: 0.4rem 0.8rem;
+			// line-break: anywhere;
 
 			&:not(:last-child) {
 				border-bottom: 2px solid colors.$black-30;
@@ -155,5 +178,41 @@ button {
 				color: colors.$blue-link-hover;
 			}
 		}
+	}
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+/* BREAKPOINTS */
+@media all and (max-width: 600px) {
+	:root {
+		font-size: 12px;
+	}
+}
+
+@media all and (max-width: 400px) {
+	#Details {
+		width: 200px !important;
+	}
+}
+
+@media all and (max-width: 300px) {
+	#Index {
+		width: 200px;
+
+		ul {
+			width: 100%;
+		}
+	}
+
+	.Layout {
+		@include mixins.flex(column, center, flex-start);
 	}
 }

@@ -85,9 +85,31 @@ button {
   justify-content: center;
   align-items: center;
   padding: 0.6rem;
+  width: 300px;
+}
+#Details .loading-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  aspect-ratio: 1/1.5;
+}
+#Details .loading-details img {
+  width: 70%;
+  margin: 0 auto;
+  opacity: 0.5;
+  animation-name: spin;
+  animation-duration: 0.7s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+#Details .loading-details span {
+  display: block;
+  font-size: 1.4rem;
+  opacity: 0.5;
 }
 #Details .pokemon-figure {
-  width: 300px;
   border: 2px solid rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   overflow: hidden;
@@ -140,6 +162,41 @@ button {
 }
 #Details .info .link:hover {
   color: rgb(26, 118, 141);
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* BREAKPOINTS */
+@media all and (max-width: 600px) {
+  :root {
+    font-size: 12px;
+  }
+}
+@media all and (max-width: 400px) {
+  #Details {
+    width: 200px !important;
+  }
+}
+@media all and (max-width: 300px) {
+  #Index {
+    width: 200px;
+  }
+  #Index ul {
+    width: 100%;
+  }
+
+  .Layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

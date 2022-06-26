@@ -4,12 +4,20 @@ import { getAndSetPokemon } from '../redux/actions';
 
 const Details = () => {
 	const dispatch = useDispatch();
-	const { currentPokemon } = useSelector(state => state);
+	const { currentPokemon, loading } = useSelector(state => state);
+
+	React.useEffect(() => {}, []);
 
 	return (
-		<>
-			{currentPokemon && (
-				<article id="Details">
+		<article id="Details">
+			{loading && (
+				<div className="loading-details">
+					<img src="img/Pokeball-vector.png" alt="loading" />
+					<span> Loading..</span>
+				</div>
+			)}
+			{!loading && currentPokemon && (
+				<>
 					<figure className="pokemon-figure">
 						<h1>
 							{`${currentPokemon.Name} `}{' '}
@@ -53,9 +61,9 @@ const Details = () => {
 							</li>
 						)}
 					</ul>
-				</article>
+				</>
 			)}
-		</>
+		</article>
 	);
 };
 

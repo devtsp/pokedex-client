@@ -2,8 +2,8 @@ import actionTypes from './types.js';
 import { getPage, getPokemon } from '../services/pokedex.js';
 
 export const getAndSetPage = pageNumber => async (dispatch, getState) => {
-	dispatch(toggleLoading());
 	try {
+		dispatch(toggleLoading());
 		const page = await getPage(pageNumber, getState().pageFactor);
 		dispatch(setPage(page));
 		dispatch(getAndSetPokemon(page.pokemonNames[0]));
@@ -17,6 +17,7 @@ export const getAndSetPage = pageNumber => async (dispatch, getState) => {
 export const getAndSetPokemon =
 	pokemonNameOrId => async (dispatch, getState) => {
 		try {
+			dispatch(toggleLoading());
 			const pokemon = await getPokemon(pokemonNameOrId);
 			dispatch(setPokemon(pokemon));
 		} catch (err) {
