@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   text-align: center;
+  box-sizing: border-box;
 }
 
 ol,
@@ -12,10 +13,16 @@ ul {
 }
 
 body {
-  background-color: rgb(245, 242, 196);
+  background-color: rgb(238, 176, 176);
   font-family: "Montserrat", sans-serif;
 }
 
+button {
+  border: none;
+  cursor: pointer;
+}
+
+/*==================================================  HEADER */
 #app-header {
   background-color: rgb(78, 78, 114);
   color: white;
@@ -23,77 +30,116 @@ body {
   padding: 0.5rem 0;
 }
 
+/* ================================================== MAIN LAYOUT */
+.Layout {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 2rem;
+}
+
+/* ================================================ PAGINATION ASIDE */
 #Index {
-  border-right: 2px solid rgba(1, 1, 1, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 0.6rem;
 }
 #Index button {
   background-color: rgb(78, 78, 114);
   border-color: rgb(78, 78, 114);
+  display: block;
+  margin-bottom: 0.4rem;
+  width: 100%;
+  padding: 0.4rem;
+  color: white;
+  border-radius: 5px;
 }
-
-.pointer {
+#Index ul {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 0.4rem;
+  padding-top: 0;
+  border-radius: 5px;
+}
+#Index li {
   cursor: pointer;
+  padding: 0.2rem 0.4rem;
+}
+#Index li .pagination-info {
+  font-weight: 600;
+  margin: 0.4rem 0;
+}
+#Index .active-pokemon {
+  font-weight: 600;
+  color: white;
+  background-color: rgb(78, 78, 114);
 }
 
+/* ========================================== DETAILS ARTICLE */
 #Details {
   display: flex;
-  align-items: center;
-}
-#Details .content {
-  margin: 0 auto;
-  display: flex;
   flex-direction: column;
-  margin: 0 1rem 0 0;
+  justify-content: center;
+  align-items: center;
+  padding: 0.6rem;
 }
-@media only screen and (min-width: 675px) {
-  #Details .content {
-    flex-direction: row;
-  }
-  #Details .content div:nth-child(1) {
-    border-right: 2px solid rgba(1, 1, 1, 0.1);
-    border-bottom: none;
-  }
+#Details .pokemon-figure {
+  width: 300px;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.4);
 }
-#Details .content > :nth-child(1) {
-  padding: 0.5rem;
-  border-bottom: 2px solid rgba(1, 1, 1, 0.1);
+#Details .pokemon-figure h1 {
+  padding: 0.4rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
 }
-#Details .content > :nth-child(2) {
-  align-self: center;
-  text-align: center;
-  padding: 0.5rem;
+#Details .pokemon-figure h1 .type {
+  font-weight: 200;
 }
-#Details .type {
-  font-size: 1rem;
-}
-#Details .image {
+#Details .pokemon-figure .image {
   width: 100%;
+  max-width: 400px;
 }
-#Details .flavor {
+#Details .pokemon-figure .flavor {
   text-align: center;
-  color: rgba(1, 1, 1, 0.3);
   line-height: 1.2rem;
-  padding: 0.5rem 0;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-style: italic;
+  font-weight: 200;
 }
-#Details .abilities {
-  margin: 0.5rem;
+#Details .info {
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  width: 100%;
+  margin-top: 1rem;
+  border-radius: 5px;
+  line-height: 1;
+  background-color: rgba(255, 255, 255, 0.2);
 }
-#Details .abilities > :nth-child(1) {
-  display: block;
+#Details .info li {
+  text-align: left;
+  padding: 0.4rem 0.8rem;
 }
-#Details .evolutions strong {
+#Details .info li:not(:last-child) {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+}
+#Details .info h1 {
+  font-size: 1rem;
+  text-align: left;
+}
+#Details .info .link {
   color: rgb(51, 51, 172);
   text-decoration: underline;
   cursor: pointer;
 }
-#Details .evolutions strong:hover {
-  color: rgb(155, 57, 0);
-}
-
-.active-pokemon {
-  font-weight: 600;
-  color: red;
-  background-color: green;
+#Details .info .link:hover {
+  color: rgb(26, 118, 141);
 }
 
 /*# sourceMappingURL=index.css.map */

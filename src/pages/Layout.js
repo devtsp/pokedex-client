@@ -6,11 +6,13 @@ import Details from '../components/Details';
 const Layout = () => {
 	return (
 		<div>
-			<h1 id="app-header">Pokedex</h1>
-			<div className="d-flex justify-content-center">
+			<header>
+				<h1 id="app-header">Pokedex</h1>
+			</header>
+			<main className="Layout">
 				<Index></Index>
 				<Details></Details>
-			</div>
+			</main>
 		</div>
 	);
 };

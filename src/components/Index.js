@@ -18,33 +18,28 @@ const Index = () => {
 	};
 
 	return (
-		<div id="Index" className="d-flex flex-column p-3">
-			<div className="d-flex flex-column">
-				<button
-					className="m-1 btn btn-dark btn-sm"
-					onClick={() => handlePage(state.currentPage.pageIndexes.previous)}
-				>
-					Previous
-				</button>
-				<button
-					className="m-1 btn btn-dark btn-sm"
-					onClick={() => handlePage(state.currentPage.pageIndexes.next)}
-				>
-					Next
-				</button>
-			</div>
+		<aside id="Index">
+			<button
+				onClick={() => handlePage(state.currentPage.pageIndexes.previous)}
+			>
+				Previous
+			</button>
+			<button onClick={() => handlePage(state.currentPage.pageIndexes.next)}>
+				Next
+			</button>
 
-			<h6 className="text-center my-2">
-				Page: {state.currentPage && state.currentPage.pageIndexes.actual}
-			</h6>
-
-			<ul className="list-unstyled text-center list-group">
+			<ul>
+				<li>
+					<p className="pagination-info">
+						Page:{' '}
+						{state.currentPage &&
+							state.currentPage.pageIndexes.actual + 1 + '/69'}
+					</p>
+				</li>
 				{state.currentPage &&
 					state.currentPage.pokemonNames.map((pokemon, i) => (
 						<li
-							className={`list-group-item p-1 pointer ${activePokemon(
-								pokemon
-							)}`}
+							className={`${activePokemon(pokemon)}`}
 							key={i}
 							id={pokemon}
 							onClick={e => dispatch(getAndSetPokemon(e.target.id))}
@@ -53,7 +48,7 @@ const Index = () => {
 						</li>
 					))}
 			</ul>
-		</div>
+		</aside>
 	);
 };
 
