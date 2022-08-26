@@ -1,6 +1,6 @@
 # Pokedex
 
-### [Launch App](https://devtsp.github.io/pokedex-client)
+### [Launch App](pokedex-client-psi.vercel.app)
 
 Preview
 
