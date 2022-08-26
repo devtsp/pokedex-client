@@ -12,7 +12,10 @@ const Details = () => {
 		<article id="Details">
 			{loading && (
 				<div className="loading-details">
-					<img src="img/pokeball-vector.png" alt="loading" />
+					<img
+						src={`${process.env.PUBLIC_URL}/img/pokeball-vector.png`}
+						alt="loading"
+					/>
 					<span> Loading..</span>
 				</div>
 			)}
